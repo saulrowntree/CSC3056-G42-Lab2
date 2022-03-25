@@ -46,5 +46,7 @@ public class DataUtilitiesTest extends TestCase {
 			e.getClass().equals(InvalidParameterException.class));
 		}
 	}
+	
+	// 5 Custom Method Tests
 
 }
