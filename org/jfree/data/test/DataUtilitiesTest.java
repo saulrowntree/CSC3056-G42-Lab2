@@ -38,7 +38,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	public void testValidDataAndColumnTotal() {
-		assertEquals("Wrong sum returned. It should be 5.0", 5.0, DataUtilities.calculateColumnTotal(values2D, 0),
+		assertEquals("Wrong sum returned. It should be 0.0", 0.0, DataUtilities.calculateColumnTotal(values2D, 0),
 				0.0000001d);
 	}
 
@@ -59,7 +59,101 @@ public class DataUtilitiesTest extends TestCase {
 	@Test
 	public void testCalculateColumnTotalTC1() {
 		values2D = validTestValues;
-		assertEquals("calculateColumnTotal: ")
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateColumnTotal(values2D,  3), 499.0);
+	}
+	
+	@Test
+	public void testCalculateColumnTotalTC2() {
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateColumnTotal(values2D,  12), 0.0);
+	}
+	
+	@Test
+	public void testCalculateColumnTotalTC3() {
+		try {
+			DataUtilities.calculateColumnTotal(null, 0);
+			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
+		} catch (Exception e) {
+			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
+		}
+	}
+	
+	@Test
+	public void testCalculateColumnTotalTC4() {
+		try {
+			DataUtilities.calculateColumnTotal(null, -80);
+			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
+		} catch (Exception e) {
+			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
+		}
 	}
 
+	@Test
+	public void testCalculateColumnTotalTC5() {
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateColumnTotal(emptyValues,  0), 0.0);
+	}
+	
+	@Test
+	public void testCalculateColumnTotalTC6() {
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateColumnTotal(emptyValues,  -452), 0.0);
+	}
+	
+	// 2 //
+	// CalculateRowTotal
+
+	@Test
+	public void testCalculateRowTotalTC1() {
+		values2D = validTestValues;
+		assertEquals("calculateRowTotal: Did not return the expected output.", 
+				DataUtilities.calculateRowTotal(values2D,  0), 105.0);
+	}
+	
+	@Test
+	public void testCalculateRowTotalTC2() {
+		values2D = validTestValues;
+		assertEquals("calculateRowTotal: Did not return the expected output.", 
+				DataUtilities.calculateRowTotal(values2D,  3), 0);
+	}
+	
+	@Test
+	public void testCalculateRowTotalTC3() {
+		try {
+			DataUtilities.calculateRowTotal(null, 0);
+			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
+		} catch (Exception e) {
+			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
+		}
+	}
+	
+	@Test
+	public void testCalculateRowTotalTC4() {
+		try {
+			DataUtilities.calculateRowTotal(null, -80);
+			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
+		} catch (Exception e) {
+			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
+		}
+	}
+
+	@Test
+	public void testCalculateRowTotalTC5() {
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateRowTotal(emptyValues,  0), 0.0);
+	}
+	
+	@Test
+	public void testCalculateRowTotalTC6() {
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: Did not return the expected output.", 
+				DataUtilities.calculateRowTotal(emptyValues,  -452), 0.0);
+	}
+	
+	
 }
