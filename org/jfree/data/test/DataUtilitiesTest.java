@@ -17,18 +17,20 @@ import junit.framework.TestCase;
 public class DataUtilitiesTest extends TestCase {
 
 	private Values2D values2D;
+	DefaultKeyedValues2D validTestValues;
+	DefaultKeyedValues2D emptyValues = new DefaultKeyedValues2D();;
 
 	public void setUp() {
-		DefaultKeyedValues2D testValues = new DefaultKeyedValues2D();
-		values2D = testValues;
-		testValues.addValue(1, 0, 0);
-		testValues.addValue(2, 0, 1);
-		testValues.addValue(3, 0, 2);
-		testValues.addValue(99, 0, 3);
-		testValues.addValue(-1, 1, 0);
-		testValues.addValue(-2, 1, 1);
-		testValues.addValue(7, 1, 2);
-		testValues.addValue(400, 1, 3);
+		validTestValues = new DefaultKeyedValues2D();
+		values2D = validTestValues;
+		validTestValues.addValue(1, 0, 0);
+		validTestValues.addValue(2, 0, 1);
+		validTestValues.addValue(3, 0, 2);
+		validTestValues.addValue(99, 0, 3);
+		validTestValues.addValue(-1, 1, 0);
+		validTestValues.addValue(-2, 1, 1);
+		validTestValues.addValue(7, 1, 2);
+		validTestValues.addValue(400, 1, 3);
 	}
 
 	protected void tearDown() {
@@ -56,7 +58,8 @@ public class DataUtilitiesTest extends TestCase {
 
 	@Test
 	public void testCalculateColumnTotalTC1() {
-		
+		values2D = validTestValues;
+		assertEquals("calculateColumnTotal: ")
 	}
 
 }

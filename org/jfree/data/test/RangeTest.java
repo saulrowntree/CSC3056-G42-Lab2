@@ -268,43 +268,43 @@ public class RangeTest extends TestCase {
 	@Test
 	public void testConstrainTC1() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(-100.1), -100);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(-100.1), -100);
 	}
 
 	@Test
 	public void testConstrainTC2() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(-100), -100.0);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(-100), -100.0);
 	}
 
 	@Test
 	public void testConstrainTC3() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(-99.9), -99.9);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(-99.9), -99.9);
 	}
 
 	@Test
 	public void testConstrainTC4() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(0.0), 0.0);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(0.0), 0.0);
 	}
 
 	@Test
 	public void testConstrainTC5() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(99.9), 99.9);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(99.9), 99.9);
 	}
 
 	@Test
 	public void testConstrainTC6() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(100), 100.0);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(100), 100.0);
 	}
 
 	@Test
 	public void testConstrainTC7() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("contains: Did not return the expected output.", rangeObjectUnderTest.constrain(100.1), 100);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(100.1), 100);
 	}
 	
 
