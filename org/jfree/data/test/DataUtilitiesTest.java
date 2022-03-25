@@ -1,6 +1,7 @@
 package org.jfree.data.test;
 
 import java.security.InvalidParameterException;
+import java.util.Arrays;
 
 import org.jfree.data.DataUtilities;
 import org.jfree.data.DefaultKeyedValues2D;
@@ -14,15 +15,20 @@ import org.junit.Test;
 import junit.framework.TestCase;
 
 public class DataUtilitiesTest extends TestCase {
-	
+
 	private Values2D values2D;
-	
-	public void setUp()
-	{
+
+	public void setUp() {
 		DefaultKeyedValues2D testValues = new DefaultKeyedValues2D();
 		values2D = testValues;
 		testValues.addValue(1, 0, 0);
-		testValues.addValue(4, 1, 0);
+		testValues.addValue(2, 0, 1);
+		testValues.addValue(3, 0, 2);
+		testValues.addValue(99, 0, 3);
+		testValues.addValue(-1, 1, 0);
+		testValues.addValue(-2, 1, 1);
+		testValues.addValue(7, 1, 2);
+		testValues.addValue(400, 1, 3);
 	}
 
 	protected void tearDown() {
@@ -30,23 +36,27 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	public void testValidDataAndColumnTotal() {
-		assertEquals("Wrong sum returned. It should be 5.0",
-				5.0, DataUtilities.calculateColumnTotal(values2D, 0), 0.0000001d);
+		assertEquals("Wrong sum returned. It should be 5.0", 5.0, DataUtilities.calculateColumnTotal(values2D, 0),
+				0.0000001d);
 	}
-	
+
 	public void testNullDataColumnTotal() {
-		try 
-		{
+		try {
 			DataUtilities.calculateColumnTotal(null, 0);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
-		}
-		catch (Exception e)
-		{
-			assertTrue("Incorrect exception type thrown",
-			e.getClass().equals(InvalidParameterException.class));
+		} catch (Exception e) {
+			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
 		}
 	}
-	
+
 	// 5 Custom Method Tests
+
+	// 1 //
+	// CalculateColumnTotal
+
+	@Test
+	public void testCalculateColumnTotalTC1() {
+		
+	}
 
 }
