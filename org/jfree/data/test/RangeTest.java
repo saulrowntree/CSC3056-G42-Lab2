@@ -56,49 +56,49 @@ public class RangeTest extends TestCase {
 	// Get Lower Bound
 
 	@Test
-	public void testGetLowerBoundTwoIdenticalPositives() {
+	public void testGetLowerBoundTC1() {
 		Range r1 = new Range(10.0, 10.0);
 		assertEquals("getLowerBound: Did not return the expected output.", 10.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundTwoIdenticalNegatives() {
+	public void testGetLowerBoundTC2() {
 		Range r1 = new Range(-10.0, -10.0);
 		assertEquals("getLowerBound: Did not return the expected output.", -10.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundTwoDifferentPositives() {
+	public void testGetLowerBoundTC3() {
 		Range r1 = new Range(5.0, 10.0);
 		assertEquals("getLowerBound: Did not return the expected output.", 5.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundTwoDifferentNegatives() {
+	public void testGetLowerBoundTC4() {
 		Range r1 = new Range(-4.0, -1.0);
 		assertEquals("getLowerBound: Did not return the expected output.", -4.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundOneNegativeOnePositive() {
+	public void testGetLowerBoundTC5() {
 		Range r1 = new Range(-9.0, 14.0);
 		assertEquals("getLowerBound: Did not return the expected output.", -9.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundOneZeroOnePositive() {
+	public void testGetLowerBoundTC6() {
 		Range r1 = new Range(0.0, 7.0);
 		assertEquals("getLowerBound: Did not return the expected output.", 0.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundOneNegativeOneZero() {
+	public void testGetLowerBoundTC7() {
 		Range r1 = new Range(-4.0, 0.0);
 		assertEquals("getLowerBound: Did not return the expected output.", -4.0, r1.getLowerBound());
 	}
 
 	@Test
-	public void testGetLowerBoundTwoZeroes() {
+	public void testGetLowerBoundTC8() {
 		Range r1 = new Range(0.0, 0.0);
 		assertEquals("getLowerBound: Did not return the expected output.", 0.0, r1.getLowerBound());
 	}
@@ -107,49 +107,49 @@ public class RangeTest extends TestCase {
 	// Get Upper Bound
 
 	@Test
-	public void testGetUpperBoundTwoIdenticalPositives() {
+	public void testGetUpperBoundTC1() {
 		Range r1 = new Range(10.0, 10.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 10.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundTwoIdenticalNegatives() {
+	public void testGetUpperBoundTC2() {
 		Range r1 = new Range(-10.0, -10.0);
 		assertEquals("getUpperBound: Did not return the expected output.", -10.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundTwoDifferentPositives() {
+	public void testGetUpperBoundTC3() {
 		Range r1 = new Range(5.0, 10.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 10.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundTwoDifferentNegatives() {
+	public void testGetUpperBoundTC4() {
 		Range r1 = new Range(-4.0, -1.0);
 		assertEquals("getUpperBound: Did not return the expected output.", -1.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundOneNegativeOnePositive() {
+	public void testGetUpperBoundTC5() {
 		Range r1 = new Range(-9.0, 14.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 14.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundOneZeroOnePositive() {
+	public void testGetUpperBoundTC6() {
 		Range r1 = new Range(0.0, 7.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 7.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundOneNegativeOneZero() {
+	public void testGetUpperBoundTC7() {
 		Range r1 = new Range(-4.0, 0.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 0.0, r1.getUpperBound());
 	}
 
 	@Test
-	public void testGetUpperBoundTwoZeroes() {
+	public void testGetUpperBoundTC8() {
 		Range r1 = new Range(0.0, 0.0);
 		assertEquals("getUpperBound: Did not return the expected output.", 0.0, r1.getUpperBound());
 	}
@@ -158,43 +158,43 @@ public class RangeTest extends TestCase {
 	// Contains
 
 	@Test
-	public void testContainsExtremeInvalidMinimum() {
+	public void testContainsTC1() {
 		Range r1 = new Range(-100, 100);
 		assertFalse("contains: Did not return the expected output.", r1.contains(-100.1));
 	}
 
 	@Test
-	public void testContainsMinimum() {
+	public void testContainsTC2() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("contains: Did not return the expected output.", r1.contains(-100));
 	}
 
 	@Test
-	public void testContainsExtremeValidMinimum() {
+	public void testContainsTC3() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("contains: Did not return the expected output.", r1.contains(-99.9));
 	}
 
 	@Test
-	public void testContainsNominal() {
+	public void testContainsTC4() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("contains: Did not return the expected output.", r1.contains(0));
 	}
 
 	@Test
-	public void testContainsExtremeInvalidMaximum() {
+	public void testContainsTC5() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("contains: Did not return the expected output.", r1.contains(99.9));
 	}
 
 	@Test
-	public void testContainsBoundaryMaximum() {
+	public void testContainsTC6() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("contains: Did not return the expected output.", r1.contains(100));
 	}
 
 	@Test
-	public void testContainsExtremeValidMaximum() {
+	public void testContainsTC7() {
 		Range r1 = new Range(-100, 100);
 		assertFalse("contains: Did not return the expected output.", r1.contains(100.1));
 	}
@@ -203,60 +203,60 @@ public class RangeTest extends TestCase {
 	// Intersects
 
 	@Test
-	public void testIntersectsExtremeJustBelowLowerBound() {
+	public void testIntersectsTC1() {
 		Range r1 = new Range(-100, 100);
 		assertFalse("intersects: Did not return the expected output.", r1.intersects(-200, -100.1));
 	}
 
 	@Test
-	public void testIntersectsOnLowerBound() {
+	public void testIntersectsTC2() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", r1.intersects(-200, -100));
 	}
 
 	@Test
-	public void testIntersectsJustAboveLowerBound() {
+	public void testIntersectsTC3() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", r1.intersects(-200, -99.9));
 	}
 
 	@Test
-	public void testIntersectsNominalValue() {
+	public void testIntersectsTC4() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", r1.intersects(-50, 50));
 	}
 
 	@Test
-	public void testIntersectsExtremeJustBelowUpperBound() {
+	public void testIntersectsTC5() {
 		Range r1 = new Range(-100, 100);
 		assertFalse("intersects: Did not return the expected output.", r1.intersects(99.9, 200));
 	}
 
 	@Test
-	public void testIntersectsOnUpperBound() {
+	public void testIntersectsTC6() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", r1.intersects(100, 200));
 	}
 
 	@Test
-	public void testIntersectsJustAboveUpperBound() {
+	public void testIntersectsTC7() {
 		Range r1 = new Range(-100, 100);
 		assertFalse("intersects: Did not return the expected output.", r1.intersects(100.1, 200));
 	}
 
 	@Test
-	public void testIntersectsLowerGreaterThanUpper() {
+	public void testIntersectsTC8() {
 		try {
 			Range r1 = new Range(-100, 100);
 			r1.intersects(200, 100);
-			fail("No exception thrown-Expected outcome was: a thrown exception of type: InvalidParameterException");
+			fail("No exception thrown-Expected outcome was: a thrown exception");
 		} catch (Exception e) {
-			assertTrue("Incorrect exception type thrown", e.getClass().equals(InvalidParameterException.class));
+			return;
 		}
 	}
 
 	@Test
-	public void testIntersectsLowerEqualToUpper() {
+	public void testIntersectsTC9() {
 		Range r1 = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", r1.intersects(50, 50));
 	}
@@ -266,43 +266,43 @@ public class RangeTest extends TestCase {
 	// Constrain
 	
 	@Test
-	public void testConstrainExtremeInvalidMinimum() {
+	public void testConstrainTC1() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(-100.1), -100);
 	}
 
 	@Test
-	public void testConstrainMinimum() {
+	public void testConstrainTC2() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(-100), -100.0);
 	}
 
 	@Test
-	public void testConstrainExtremeValidMinimum() {
+	public void testConstrainTC3() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(-99.9), -99.9);
 	}
 
 	@Test
-	public void testConstrainNominal() {
+	public void testConstrainTC4() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(0.0), 0.0);
 	}
 
 	@Test
-	public void testConstrainExtremeInvalidMaximum() {
+	public void testConstrainTC5() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(99.9), 99.9);
 	}
 
 	@Test
-	public void testConstrainBoundaryMaximum() {
+	public void testConstrainTC6() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(100), 100.0);
 	}
 
 	@Test
-	public void testConstrainExtremeValidMaximum() {
+	public void testConstrainTC7() {
 		Range r1 = new Range(-100, 100);
 		assertEquals("contains: Did not return the expected output.", r1.constrain(100.1), 100);
 	}
