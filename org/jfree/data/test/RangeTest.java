@@ -204,14 +204,14 @@ public class RangeTest extends TestCase {
 
 	@Test
 	public void testIntersectsTC1() {
-		rangeObjectUnderTest = new Range(-100, 100);
-		assertFalse("intersects: Did not return the expected output.", rangeObjectUnderTest.intersects(-200, -100.1));
+		rangeObjectUnderTest = new Range(-100.0, 100.0);
+		assertFalse("intersects: Did not return the expected output.", rangeObjectUnderTest.intersects(-200.0, -100.1));
 	}
 
 	@Test
 	public void testIntersectsTC2() {
-		rangeObjectUnderTest = new Range(-100, 100);
-		assertTrue("intersects: Did not return the expected output.", rangeObjectUnderTest.intersects(-200, -100));
+		rangeObjectUnderTest = new Range(-100.0, 100.0);
+		assertTrue("intersects: Did not return the expected output.", rangeObjectUnderTest.intersects(-200.0, -100.0));
 	}
 
 	@Test
@@ -260,15 +260,15 @@ public class RangeTest extends TestCase {
 		rangeObjectUnderTest = new Range(-100, 100);
 		assertTrue("intersects: Did not return the expected output.", rangeObjectUnderTest.intersects(50, 50));
 	}
-	
-	
+
+
 	// 5 //
 	// Constrain
-	
+
 	@Test
 	public void testConstrainTC1() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(-100.1), -100);
+		assertEquals("constrain: Did not return the expected output.",-100,rangeObjectUnderTest.constrain(-100.1));
 	}
 
 	@Test
@@ -304,8 +304,7 @@ public class RangeTest extends TestCase {
 	@Test
 	public void testConstrainTC7() {
 		rangeObjectUnderTest = new Range(-100, 100);
-		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(100.1), 100);
+		assertEquals("constrain: Did not return the expected output.", rangeObjectUnderTest.constrain(100.1), 100.0);
 	}
-	
 
 }
