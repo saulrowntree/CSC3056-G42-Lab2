@@ -67,9 +67,13 @@ public class DataUtilitiesTest extends TestCase {
 
 	@Test
 	public void testCalculateColumnTotalTC2() {
+		try {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateColumnTotal(values2D, 12), 0.0);
+		}catch(Exception e) {
+			fail("Exception encountered"+e.getClass());
+		}
 	}
 
 	@Test
@@ -118,9 +122,13 @@ public class DataUtilitiesTest extends TestCase {
 
 	@Test
 	public void testCalculateRowTotalTC2() {
+		try {
 		values2D = validTestValues;
 		assertEquals("calculateRowTotal: Did not return the expected output.",
 				DataUtilities.calculateRowTotal(values2D, 3), 0);
+	}catch(Exception e) {
+		fail("Exception encountered"+e.getClass());
+	}
 	}
 
 	@Test
