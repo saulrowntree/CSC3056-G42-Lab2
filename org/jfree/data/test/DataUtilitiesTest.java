@@ -59,14 +59,14 @@ public class DataUtilitiesTest extends TestCase {
 	// CalculateColumnTotal
 
 	@Test
-	public void testCalculateColumnTotalTC1() {
+	public void testCalculateColumnTotalReturnsExpectedValueWithValidDataAndColumn() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateColumnTotal(values2D, 3), 499.0);
 	}
 
 	@Test
-	public void testCalculateColumnTotalTC2() {
+	public void testCalculateColumnTotalReturnsZeroWithInvalidColumn() {
 		try {
 			values2D = validTestValues;
 			assertEquals("calculateColumnTotal: Did not return the expected output.",
@@ -77,7 +77,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateColumnTotalTC3() {
+	public void testCalculateColumnTotalExceptionThrownWithNullDataAndValidColumn() {
 		try {
 			DataUtilities.calculateColumnTotal(null, 0);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -87,7 +87,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateColumnTotalTC4() {
+	public void testCalculateColumnTotalExceptionThrownWithNullDataAndInvalidColumn() {
 		try {
 			DataUtilities.calculateColumnTotal(null, -80);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -97,14 +97,14 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateColumnTotalTC5() {
+	public void testCalculateColumnTotalReturnsZeroWithEmptyDataAndValidColumn() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateColumnTotal(emptyValues, 0), 0.0);
 	}
 
 	@Test
-	public void testCalculateColumnTotalTC6() {
+	public void testCalculateColumnTotalReturnsZeroWithEmptyDataAndInvalidColumn() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateColumnTotal(emptyValues, -452), 0.0);
@@ -114,14 +114,14 @@ public class DataUtilitiesTest extends TestCase {
 	// CalculateRowTotal
 
 	@Test
-	public void testCalculateRowTotalTC1() {
+	public void testCalculateRowTotalReturnsExpectedValueWithValidDataAndRow() {
 		values2D = validTestValues;
 		assertEquals("calculateRowTotal: Did not return the expected output.",
 				105.0, DataUtilities.calculateRowTotal(values2D, 0));
 	}
 
 	@Test
-	public void testCalculateRowTotalTC2() {
+	public void testCalculateRowTotalReturnsZeroWithInvalidRow() {
 		try {
 			values2D = validTestValues;
 			assertEquals("calculateRowTotal: Did not return the expected output.",
@@ -132,7 +132,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateRowTotalTC3() {
+	public void testCalculateRowTotalExceptionThrownWithNullDataAndValidRow() {
 		try {
 			DataUtilities.calculateRowTotal(null, 0);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -142,7 +142,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateRowTotalTC4() {
+	public void testCalculateRowTotalExceptionThrownWithNullDataAndInvalidRow() {
 		try {
 			DataUtilities.calculateRowTotal(null, -80);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -152,14 +152,14 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCalculateRowTotalTC5() {
+	public void testCalculateRowTotalReturnsZeroWithEmptyDataAndValidRow() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateRowTotal(emptyValues, 0), 0.0);
 	}
 
 	@Test
-	public void testCalculateRowTotalTC6() {
+	public void testCalculateRowTotalReturnsZeroWithEmptyDataAndInvalidRow() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
 				DataUtilities.calculateRowTotal(emptyValues, -452), 0.0);
@@ -169,7 +169,7 @@ public class DataUtilitiesTest extends TestCase {
 	// CreateNumberArray
 
 	@Test
-	public void testCreateNumberArrayTC1() {
+	public void testCreateNumberArrayAllValuesCopiedAcrossToNewArrayWithValidData() {
 		double[] doubles = { 1.0, 2.0, -1.0, -2.0, -1000.0, 45.0 };
 		
 
@@ -187,7 +187,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCreateNumberArrayTC2() {
+	public void testCreateNumberArrayExceptionThrownWithNullData() {
 		try {
 			Number[] nums = DataUtilities.createNumberArray(null);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -197,7 +197,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCreateNumberArrayTC3() {
+	public void testCreateNumberArrayEmptyDataCreatesEmptyArrayOfLengthZero() {
 		double[] empty = {};
 		Number[] nums = DataUtilities.createNumberArray(empty);
 		assertEquals("createNumberArray: Did not contain the expected output.", nums.length, 0);
@@ -207,7 +207,7 @@ public class DataUtilitiesTest extends TestCase {
 	// CreateNumberArray2D
 
 	@Test
-	public void testCreateNumberArray2DTC1() {
+	public void testCreateNumberArray2DAllValuesCopiedAcrossToNewArrayWithValidData() {
 		double[][] doubles = { { 1.0, 2.0, 3.0 }, { -8.0, -43.0, 200.0 } };
 
 		Number[][] nums = DataUtilities.createNumberArray2D(doubles);
@@ -220,7 +220,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCreateNumberArray2DTC2() {
+	public void testCreateNumber2DArrayExceptionThrownWithNullData() {
 		try {
 			Number[][] nums = DataUtilities.createNumberArray2D(null);
 			fail("No exception thrown-Expected outcome was: a thrown exception of type: IllegalArgumentException");
@@ -230,7 +230,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testCreateNumberArray2DTC3() {
+	public void testCreateNumber2DArrayEmptyDataCreatesEmptyArrayOfLengthTwo() {
 		double[][] empty = { {}, {} };
 		Number[][] nums = DataUtilities.createNumberArray2D(empty);
 		assertEquals("createNumberArray2D: Did not contain the expected output.", nums.length, 2);
@@ -240,7 +240,7 @@ public class DataUtilitiesTest extends TestCase {
 	// GetCumulativePercentages
 
 	@Test
-	public void testGetCumulativePercentagesTC1() {
+	public void testGetCumulativePercentagesCumulativePercentagesCorrectWithValidData() {
 		DefaultKeyedValues keyedValues = new DefaultKeyedValues();
 		keyedValues.addValue((Comparable) 0, 6.0);
 		keyedValues.addValue((Comparable) 1, 11.0);
@@ -269,7 +269,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testGetCumulativePercentagesTC2() {
+	public void testGetCumulativePercentagesExceptionThrownWithNullData() {
 		try {
 			DefaultKeyedValues keyedValues = null;
 			KeyedValues objectUnderTest = DataUtilities.getCumulativePercentages((KeyedValues) keyedValues);
@@ -280,7 +280,7 @@ public class DataUtilitiesTest extends TestCase {
 	}
 
 	@Test
-	public void testGetCumulativePercentagesTC3() {
+	public void testGetCumulativePercentagesItemCountIsZeroWithEmptyData() {
 		DefaultKeyedValues keyedValues = new DefaultKeyedValues();
 		KeyedValues objectUnderTest = DataUtilities.getCumulativePercentages((KeyedValues) keyedValues);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0,
