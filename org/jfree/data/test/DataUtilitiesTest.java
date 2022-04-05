@@ -21,6 +21,7 @@ public class DataUtilitiesTest extends TestCase {
 	private Values2D values2D;
 	DefaultKeyedValues2D validTestValues;
 	DefaultKeyedValues2D emptyValues = new DefaultKeyedValues2D();
+	private static final double DELTA = 1e-15;
 
 	public void setUp() {
 		validTestValues = new DefaultKeyedValues2D();
@@ -100,14 +101,14 @@ public class DataUtilitiesTest extends TestCase {
 	public void testCalculateColumnTotalReturnsZeroWithEmptyDataAndValidColumn() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
-				DataUtilities.calculateColumnTotal(emptyValues, 0), 0.0);
+				DataUtilities.calculateColumnTotal(emptyValues, 0), 0.0,DELTA);
 	}
 
 	@Test
 	public void testCalculateColumnTotalReturnsZeroWithEmptyDataAndInvalidColumn() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
-				DataUtilities.calculateColumnTotal(emptyValues, -452), 0.0);
+				DataUtilities.calculateColumnTotal(emptyValues, -452), 0.0,DELTA);
 	}
 
 	// 2 //
@@ -117,7 +118,7 @@ public class DataUtilitiesTest extends TestCase {
 	public void testCalculateRowTotalReturnsExpectedValueWithValidDataAndRow() {
 		values2D = validTestValues;
 		assertEquals("calculateRowTotal: Did not return the expected output.",
-				105.0, DataUtilities.calculateRowTotal(values2D, 0));
+				105.0, DataUtilities.calculateRowTotal(values2D, 0),DELTA);
 	}
 
 	@Test
@@ -155,14 +156,14 @@ public class DataUtilitiesTest extends TestCase {
 	public void testCalculateRowTotalReturnsZeroWithEmptyDataAndValidRow() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
-				DataUtilities.calculateRowTotal(emptyValues, 0), 0.0);
+				DataUtilities.calculateRowTotal(emptyValues, 0), 0.0,DELTA);
 	}
 
 	@Test
 	public void testCalculateRowTotalReturnsZeroWithEmptyDataAndInvalidRow() {
 		values2D = validTestValues;
 		assertEquals("calculateColumnTotal: Did not return the expected output.",
-				DataUtilities.calculateRowTotal(emptyValues, -452), 0.0);
+				DataUtilities.calculateRowTotal(emptyValues, -452), 0.0,DELTA);
 	}
 
 	// 3 //
@@ -255,17 +256,17 @@ public class DataUtilitiesTest extends TestCase {
             System.out.println("VALUE: "+objectUnderTest.getValue(i));
         }
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0.23076923076923078,
-				(double) objectUnderTest.getValue(0));
+				(double) objectUnderTest.getValue(0),DELTA);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0.6538461538461539,
-				(double) objectUnderTest.getValue(1));
+				(double) objectUnderTest.getValue(1),DELTA);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0.7692307692307693,
-				(double) objectUnderTest.getValue(2));
+				(double) objectUnderTest.getValue(2),DELTA);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0.6153846153846154,
-				(double) objectUnderTest.getValue(3));
+				(double) objectUnderTest.getValue(3),DELTA);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 0.6538461538461539,
-				(double) objectUnderTest.getValue(4));
+				(double) objectUnderTest.getValue(4),DELTA);
 		assertEquals("getCumulativePercentages: Did not contain the expected output.", 1.0,
-				(double) objectUnderTest.getValue(5));
+				(double) objectUnderTest.getValue(5),DELTA);
 	}
 
 	@Test
